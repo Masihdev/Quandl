@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quandl</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body onload="loadCourse()">
+    <div class="inputs">
+      <div class="start-input">
+        <label for="start-date">Start Date</label>
+        <input id="start-date" type="date" placeholder="mm/dd/yy" />
+      </div>
+      <div class="end-input">
+        <label for="end-date">End Date</label>
+        <input id="end-date" type="date" placeholder="mm/dd/yy" />
+      </div>
+      <button onclick="getDate()" class="btn">Anzeigen</button>
+    </div>
+    <div class="bitcoin-price">
+      <span
+        >Aktuell kostet ein Bitcoin <b id="bitcointoday">60.000</b> USD.</span
+      >
+    </div>
+
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.start-input,
+.end-input {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    align-items: center;
+    border: 2px solid gray;
+    font-weight: bolder;
+}
+
+.start-input input,
+.end-input input {
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-weight: bolder;
+    margin-top: 5px;
+}
+
+.btn {
+    background-color: blue;
+    width: 100px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.bitcoin-price {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+#myChart {
+    width: 800px !important;
+    height: 500px !important;
+    margin-top: 50px;
+}
