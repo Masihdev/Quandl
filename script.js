@@ -5,6 +5,7 @@ let endDate = "";
 let responseAsJson;
 let xValues = [];
 let yValues = [];
+let myChart = null;
 
 async function loadCourse() {
   //  let today = new Date();
@@ -33,20 +34,32 @@ async function getDate() {
   startDate = document.getElementById("start-date").value;
   endDate = document.getElementById("end-date").value;
   await loadCourse();
+  if (myChart != null) {
+    myChart.destroy();
+    xValues.splice(0, xValues.length);
+    yValues.splice(0, yValues.length);
+    // xValues = [];
+    // yValues = [];
+  }
+  readArr();
   chartIt();
+}
+
+// test
+
+function readArr() {
+  for (let i = 0; i < responseAsJson["dataset"]["data"].length; i++) {
+    xValues.push(responseAsJson["dataset"]["data"][i][0]);
+    yValues.push(responseAsJson["dataset"]["data"][i][1]);
+  }
 }
 
 // chart
 
 function chartIt() {
   setTimeout(() => {
-    for (let i = 0; i < responseAsJson["dataset"]["data"].length; i++) {
-      xValues.push(responseAsJson["dataset"]["data"][i][0]);
-      yValues.push(responseAsJson["dataset"]["data"][i][1]);
-    }
-
     const data = {
-      labels: xValues,
+      labels: xValues.reverse(),
       datasets: [
         {
           label: "My First dataset",
@@ -58,11 +71,11 @@ function chartIt() {
     };
 
     const config = {
-      type: "line",
+      type: "bar",
       data: data,
       options: {},
     };
 
-    const myChart = new Chart(document.getElementById("myChart"), config);
+    myChart = new Chart(document.getElementById("myChart"), config);
   }, 100);
 }
